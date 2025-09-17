@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gesture Instrument - Control Music with Your Hands</title>
-    <meta name="description" content="Play music using hand gestures detected by your camera. A web-based theremin-like instrument using AI.">
+    <title>HandJam! - Music for Everyone</title>
+    <meta name="description" content="Music for everyone - play music using hand gestures detected by your camera. A web-based theremin-like instrument using AI.">
     
     <!-- External Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
@@ -18,11 +18,13 @@
             box-sizing: border-box;
         }
         
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #F9F6F1;
             min-height: 100vh;
-            color: white;
+            color: #5D4E37;
             overflow-x: hidden;
         }
         
@@ -63,10 +65,11 @@
         }
         
         .video-section {
-            background: rgba(255,255,255,0.1);
+            background: #FFFFFF;
+            border: 1px solid #E6D7C3;
             border-radius: 20px;
             padding: 20px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(93, 78, 55, 0.1);
             animation: slideInLeft 0.8s ease-out;
         }
         
@@ -101,29 +104,31 @@
         }
         
         .control-panel {
-            background: rgba(255,255,255,0.95);
-            color: #333;
+            background: #FFFFFF;
+            color: #5D4E37;
+            border: 1px solid #E6D7C3;
             border-radius: 20px;
             padding: 25px;
             margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(93, 78, 55, 0.1);
         }
         
         .control-panel h2 {
-            color: #667eea;
+            color: #5D4E37;
             margin-bottom: 20px;
             font-size: 1.5em;
+            font-weight: 600;
         }
         
         .start-btn {
             width: 100%;
             padding: 15px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #5D4E37;
+            color: #F9F6F1;
             border: none;
             border-radius: 10px;
             font-size: 1.2em;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             margin-bottom: 20px;
@@ -131,7 +136,8 @@
         
         .start-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            background: #4A3D2A;
+            box-shadow: 0 6px 20px rgba(93, 78, 55, 0.3);
         }
         
         .start-btn:disabled {
@@ -144,9 +150,9 @@
         }
         
         .selector-label {
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 10px;
-            color: #667eea;
+            color: #5D4E37;
         }
         
         .button-group {
@@ -157,29 +163,32 @@
         
         .mode-btn, .synth-btn {
             padding: 10px;
-            border: 2px solid #667eea;
-            background: white;
-            color: #667eea;
+            border: 2px solid #E6D7C3;
+            background: #F9F6F1;
+            color: #5D4E37;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: 600;
+            font-weight: 500;
         }
         
         .mode-btn:hover, .synth-btn:hover {
-            background: #f0f4ff;
+            background: #E6D7C3;
+            border-color: #5D4E37;
         }
         
         .mode-btn.active, .synth-btn.active {
-            background: #667eea;
-            color: white;
+            background: #5D4E37;
+            color: #F9F6F1;
+            border-color: #5D4E37;
         }
         
         .status-panel {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #5D4E37;
             padding: 20px;
             border-radius: 15px;
             margin-top: 20px;
+            color: #F9F6F1;
         }
         
         .status-item {
@@ -203,7 +212,7 @@
         .finger-bar {
             width: 50px;
             height: 80px;
-            background: rgba(255,255,255,0.2);
+            background: #E6D7C3;
             border-radius: 5px;
             position: relative;
             overflow: hidden;
@@ -213,7 +222,7 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            background: linear-gradient(to top, #ff4444, #ffaa00, #44ff44);
+            background: linear-gradient(to top, #8B4513, #CD853F, #5D4E37);
             transition: height 0.1s;
             border-radius: 5px;
         }
@@ -228,11 +237,12 @@
         }
         
         .instructions {
-            background: rgba(255,255,255,0.1);
+            background: #FFFFFF;
+            border: 1px solid #E6D7C3;
             border-radius: 20px;
             padding: 30px;
             margin-top: 30px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(93, 78, 55, 0.1);
         }
         
         .instructions h2 {
@@ -249,16 +259,17 @@
         }
         
         .instruction-card {
-            background: rgba(255,255,255,0.1);
+            background: #F9F6F1;
             border-radius: 15px;
             padding: 20px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid #E6D7C3;
         }
         
         .instruction-card h3 {
-            color: #ffd700;
+            color: #5D4E37;
             margin-bottom: 15px;
             font-size: 1.3em;
+            font-weight: 600;
         }
         
         .instruction-card ul {
@@ -277,7 +288,7 @@
             content: "→";
             position: absolute;
             left: 5px;
-            color: #ffd700;
+            color: #5D4E37;
         }
         
         .gesture-guide {
@@ -285,7 +296,8 @@
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
             padding: 20px;
-            background: rgba(255,255,255,0.05);
+            background: #F9F6F1;
+            border: 1px solid #E6D7C3;
             border-radius: 15px;
             margin-top: 20px;
         }
@@ -293,7 +305,8 @@
         .gesture-item {
             text-align: center;
             padding: 15px;
-            background: rgba(255,255,255,0.1);
+            background: #FFFFFF;
+            border: 1px solid #E6D7C3;
             border-radius: 10px;
             transition: transform 0.3s;
         }
@@ -360,8 +373,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>🎵 Gesture Instrument 🎵</h1>
-            <p class="subtitle">Control music with your hands using AI-powered gesture recognition</p>
+            <h1>🎵 HandJam! 🎵</h1>
+            <p class="subtitle">Music for everyone - control music with your hands using AI-powered gesture recognition</p>
         </header>
         
         <div class="main-grid">
