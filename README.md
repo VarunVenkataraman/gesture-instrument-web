@@ -3,7 +3,7 @@
 Control music with hand gestures in your browser.
 
 ## Live Demo
-[Try it here](https://your-vercel-url.vercel.app)
+[Try it here](https://gesture-instrument-web.vercel.app/)
 
 ## Features
 - Hand tracking with MediaPipe
